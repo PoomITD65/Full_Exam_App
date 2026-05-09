@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ผลการตรวจย้อนหลัง</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <h2 class="mb-4">📊 รายงานผลตรวจย้อนหลัง</h2>
+
+    {% if reports %}
+      <div class="accordion" id="reportAccordion">
+        {% for rep in reports %}
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading{{ loop.index }}">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#collapse{{ loop.index }}">
+              🧑 Student: {{ rep.report.student_id }} | คะแนน: {{ rep.report.total_score }}/{{ rep.report.max_score }}
+              ({{ rep.timestamp }})
+            </button>
+          </h2>
+          <div id="collapse{{ loop.index }}" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <pre>{{ rep.report | tojson(indent=2) }}</pre>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="alert alert-info">ยังไม่มีรายงานย้อนหลัง</div>
+    {% endif %}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+﻿file,group,student_id_display,student_id_valid,score,total,answered,correct,wrong,unanswered,debug_image
+002.jpg,ฝนครบถ่ายเอียง,02030,True,15,40,40,15,25,0,D:\Mis_School\FullExamApp\ตัวอย่างกระดาษคำตอบ\ตัวอย่างผลตรวจ_มีจุดมาร์ก\ฝนครบถ่ายเอียง\002_id_02030_valid_score_15_answered_40.jpg
+003.jpg,ฝนครบถ่ายเอียง,02040,True,16,40,40,16,24,0,D:\Mis_School\FullExamApp\ตัวอย่างกระดาษคำตอบ\ตัวอย่างผลตรวจ_มีจุดมาร์ก\ฝนครบถ่ายเอียง\003_id_02040_valid_score_16_answered_40.jpg
+005.jpg,ฝนครบถ่ายเอียง,02040,True,16,40,40,16,24,0,D:\Mis_School\FullExamApp\ตัวอย่างกระดาษคำตอบ\ตัวอย่างผลตรวจ_มีจุดมาร์ก\ฝนครบถ่ายเอียง\005_id_02040_valid_score_16_answered_40.jpg
+006.jpg,ฝนครบแต่เลขประจำตัวเกินและบางข้อฝนไม่เต็ม,NO_ID,False,16,40,40,16,24,0,D:\Mis_School\FullExamApp\ตัวอย่างกระดาษคำตอบ\ตัวอย่างผลตรวจ_มีจุดมาร์ก\ฝนครบแต่เลขประจำตัวเกินและบางข้อฝนไม่เต็ม\006_id_no_id_invalid_id_score_16_answered_40.jpg
+001.jpg,ลบแล้วแต่มีรอย,NO_ID,False,0,40,0,0,0,40,D:\Mis_School\FullExamApp\ตัวอย่างกระดาษคำตอบ\ตัวอย่างผลตรวจ_มีจุดมาร์ก\ลบแล้วแต่มีรอย\001_id_no_id_invalid_id_score_0_answered_0.jpg
+004.jpg,ลบแล้วแต่มีรอย,02040,True,0,40,0,0,0,40,D:\Mis_School\FullExamApp\ตัวอย่างกระดาษคำตอบ\ตัวอย่างผลตรวจ_มีจุดมาร์ก\ลบแล้วแต่มีรอย\004_id_02040_valid_score_0_answered_0.jpg

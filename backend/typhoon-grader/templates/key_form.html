@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ตั้งค่าเฉลย OMR</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">📝 ตั้งค่าเฉลย OMR</h2>
+
+    <!-- ฟอร์มใส่เฉลย -->
+    <form id="keyForm" class="card shadow-sm p-4">
+      <div class="mb-3">
+        <label class="form-label">ตั้งค่าเฉลย 80 ข้อ (เลือกคำตอบแต่ละข้อ)</label>
+        <div class="row">
+          <div id="answerDropdowns" class="col-12"></div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success w-100">💾 บันทึกเฉลย</button>
+      <div id="keyError" class="mt-2"></div>
+    </form>
+
+    <!-- แสดงผลเฉลยล่าสุด -->
+    <div id="keyResult" class="card shadow-sm p-4 mt-4" style="display:none;">
+      <h5>✅ เฉลยล่าสุด</h5>
+      <div id="keyPreview" class="small"></div>
+    </div>
+
+    <!-- พื้นที่ทดสอบตรวจ -->
+    <div class="card shadow-sm p-4 mt-5">
+      <h5>📂 ทดสอบตรวจด้วยไฟล์กระดาษคำตอบ</h5>
+      <form id="testForm">
+        <input type="file" class="form-control mb-2" id="testFile" accept=".jpg,.jpeg,.png">
+        <button class="btn btn-primary w-100">ตรวจสอบ</button>
+      </form>
+      <div id="testResult" class="mt-4" style="display:none;">
+        <p><strong>รหัสนักศึกษา:</strong> <span id="studentId"></span></p>
+        <div id="answers" class="row row-cols-2 row-cols-md-4 g-2"></div>
+        <hr>
+        <h6>🖼 Debug Image</h6>
+        <img id="debugImage" src="" class="img-fluid border rounded">
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Build dropdowns for 80 questions
+    const answerDropdowns = document.getElementById("answerDropdowns");
+    for(let i=1;i<=80;i++){
+      const div = document.createElement("div");
+      div.className = "mb-2 d-inline-block";
+      div.style="width:90px";
+      div.innerHTML = `<label>Q${i}</label>
+        <select name="Q${i}" class="form-select form-select-sm">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+        </select>`;
+      answerDropdowns.appendChild(div);
+    }
+
+    // บันทึกเฉลย
+    document.getElementById("keyForm").addEventListener("submit", async (e)=>{
+      e.preventDefault();
+      const keyError = document.getElementById("keyError");
+      keyError.innerHTML = "";
+      let keyObj = {};
+      for(let i=1;i<=80;i++){
+        keyObj[`Q${i}`] = document.querySelector(`[name='Q${i}']`).value;
+      }
+      const res = await fetch("/set_answer_key", {
+        method:"POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({
+          exam_id: "DEFAULT_EXAM_80Q",
+          score_per_question: 1,
+          key: keyObj
+        })
+      });
+      const data = await res.json();
+      if(data.status!=="success"){
+        keyError.innerHTML = `<div class='alert alert-danger'>${data.message||"เกิดข้อผิดพลาด"}</div>`;
+        return;
+      }
+      document.getElementById("keyResult").style.display="block";
+      let html = `<table class='table table-bordered'><thead><tr><th>ข้อ</th><th>เฉลย</th></tr></thead><tbody>`;
+      for(let i=1;i<=80;i++){
+        html += `<tr><td>Q${i}</td><td>${keyObj[`Q${i}`]}</td></tr>`;
+      }
+      html += `</tbody></table>`;
+      document.getElementById("keyPreview").innerHTML = html;
+    });
+
+    // ทดสอบตรวจข้อสอบ
+    document.getElementById("testForm").addEventListener("submit", async (e)=>{
+      e.preventDefault();
+      const file = document.getElementById("testFile").files[0];
+      if(!file) return alert("กรุณาเลือกไฟล์");
+
+      const fd = new FormData();
+      fd.append("file", file);
+
+      const res = await fetch("/grade", {method:"POST", body:fd});
+      const data = await res.json();
+
+      if(data.error){ alert("❌ " + data.error); return; }
+
+      document.getElementById("testResult").style.display="block";
+      document.getElementById("studentId").innerText = data.student_id;
+
+      const answersDiv = document.getElementById("answers");
+      answersDiv.innerHTML="";
+      for(const [q,ans] of Object.entries(data.answers)){
+        const el=document.createElement("div");
+        el.className="col";
+        el.innerHTML=`<div class="p-2 border rounded bg-white small">${q}: <strong>${ans}</strong></div>`;
+        answersDiv.appendChild(el);
+      }
+      if(data.debug_image){
+        document.getElementById("debugImage").src = data.debug_image;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# ==== Python ====
+venv/
+*/venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# venv ของ typhoon-grader
+backend/typhoon-grader/venv/
+
+# ==== Node / Frontend ====
+node_modules/
+dist/
+build/
+.vite/
+
+# ==== Environment files ====
+.env
+*.env
+
+# ==== Editors / IDE ====
+.vscode/
+.idea/
+
+# ==== OS garbage ====
+.DS_Store
+Thumbs.db

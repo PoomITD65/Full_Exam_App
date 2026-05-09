@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+sqlalchemy>=2.0
+pymysql
+python-dotenv
+PyJWT
+bcrypt
+python-multipart
+httpx<0.28
+numpy
+opencv-python-headless
+Flask
+Werkzeug

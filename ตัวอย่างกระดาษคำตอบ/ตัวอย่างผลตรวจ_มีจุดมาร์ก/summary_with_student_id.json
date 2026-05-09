@@ -1,0 +1,56 @@
+[
+  {
+    "source": "D:\\Mis_School\\FullExamApp\\ตัวอย่างกระดาษคำตอบ\\Template.jpg",
+    "student_id": "?????",
+    "score": 0,
+    "total": 40,
+    "answered_count": 0,
+    "correct_count": 0,
+    "debug_image": "D:\\Mis_School\\FullExamApp\\ตัวอย่างกระดาษคำตอบ\\ตัวอย่างผลตรวจ_มีจุดมาร์ก\\blank_template\\Template_id___score_0_answered_0.jpg"
+  },
+  {
+    "source": "D:\\Mis_School\\FullExamApp\\ตัวอย่างกระดาษคำตอบ\\data\\ลบแล้วแต่มีรอย\\001.jpg",
+    "student_id": "020?0",
+    "score": 0,
+    "total": 40,
+    "answered_count": 0,
+    "correct_count": 0,
+    "debug_image": "D:\\Mis_School\\FullExamApp\\ตัวอย่างกระดาษคำตอบ\\ตัวอย่างผลตรวจ_มีจุดมาร์ก\\ลบแล้วแต่มีรอย\\001_id_020_0_score_0_answered_0.jpg"
+  },
+  {
+    "source": "D:\\Mis_School\\FullExamApp\\ตัวอย่างกระดาษคำตอบ\\data\\ฝนครบถ่ายเอียง\\002.jpg",
+    "student_id": "02030",
+    "score": 15,
+    "total": 40,
+    "answered_count": 40,
+    "correct_count": 15,
+    "debug_image": "D:\\Mis_School\\FullExamApp\\ตัวอย่างกระดาษคำตอบ\\ตัวอย่างผลตรวจ_มีจุดมาร์ก\\ฝนครบถ่ายเอียง\\002_id_02030_score_15_answered_40.jpg"
+  },
+  {
+    "source": "D:\\Mis_School\\FullExamApp\\ตัวอย่างกระดาษคำตอบ\\data\\ฝนครบถ่ายเอียง\\003.jpg",
+    "student_id": "02040",
+    "score": 16,
+    "total": 40,
+    "answered_count": 40,
+    "correct_count": 16,
+    "debug_image": "D:\\Mis_School\\FullExamApp\\ตัวอย่างกระดาษคำตอบ\\ตัวอย่างผลตรวจ_มีจุดมาร์ก\\ฝนครบถ่ายเอียง\\003_id_02040_score_16_answered_40.jpg"
+  },
+  {
+    "source": "D:\\Mis_School\\FullExamApp\\ตัวอย่างกระดาษคำตอบ\\data\\ลบแล้วแต่มีรอย\\004.jpg",
+    "student_id": "02040",
+    "score": 0,
+    "total": 40,
+    "answered_count": 0,
+    "correct_count": 0,
+    "debug_image": "D:\\Mis_School\\FullExamApp\\ตัวอย่างกระดาษคำตอบ\\ตัวอย่างผลตรวจ_มีจุดมาร์ก\\ลบแล้วแต่มีรอย\\004_id_02040_score_0_answered_0.jpg"
+  },
+  {
+    "source": "D:\\Mis_School\\FullExamApp\\ตัวอย่างกระดาษคำตอบ\\data\\ฝนครบถ่ายเอียง\\005.jpg",
+    "student_id": "02040",
+    "score": 16,
+    "total": 40,
+    "answered_count": 40,
+    "correct_count": 16,
+    "debug_image": "D:\\Mis_School\\FullExamApp\\ตัวอย่างกระดาษคำตอบ\\ตัวอย่างผลตรวจ_มีจุดมาร์ก\\ฝนครบถ่ายเอียง\\005_id_02040_score_16_answered_40.jpg"
+  }
+]
